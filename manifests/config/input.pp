@@ -18,10 +18,15 @@ define nxlog::config::input (
   $input_file_path = $::nxlog::input_file_path,
   $input_module    = $::nxlog::input_module,
   $input_type      = $::nxlog::input_type,
-  $order_input     = $::nxlog::order_input,) {
+  $order_input     = $::nxlog::order_input,
+  ) {
+  $prefix = $::kernel ? {
+    'Windows' => 'win-',
+    default   => '',
+  }  
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_input,
-    content => template('nxlog/input.erb'),
+    content => template("nxlog/${prefix}input.erb"),
   }
 }

@@ -27,8 +27,12 @@ define nxlog::config::processor (
   $processor_output_format     = $::nxlog::processor_output_format,
   $processor_csv_output_fields = $::nxlog::processor_csv_output_fields,
   ) {
+  $prefix = $::kernel ? {
+    'Windows' => 'win-',
+    default   => '',
+  }
   $processor_template = $processor_module ? {
-    'pm_transformer' => 'nxlog/processor/transformer.erb',
+    'pm_transformer' => "nxlog/processor/${prefix}transformer.erb",
     default          => undef,
   }
 
