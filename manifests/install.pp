@@ -3,6 +3,7 @@ class nxlog::install (
   $ensure_setting = $::nxlog::ensure_setting,
   $package_name   = $::nxlog::package_name,
   $package_source = $::nxlog::package_source,
+  $install_options = $::nxlog::install_options,
   ) {
   case $::kernel {
     'Linux'   : {
@@ -19,6 +20,7 @@ class nxlog::install (
       package { $package_name:
         ensure   => $ensure_setting,
         provider => $real_provider,
+        install_options => $install_options,
       }
     } # end Windows
 

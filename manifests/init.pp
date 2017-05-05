@@ -26,6 +26,7 @@ class nxlog (
   $output_port                 = $::nxlog::params::output_port,
   $package_name                = $::nxlog::params::package_name,
   $package_source              = $::nxlog::params::package_source,
+  $install_options             = $::nxlog::params::install_options,
   $processor_module            = $::nxlog::params::processor_module,
   $processor_input_format      = $::nxlog::params::processor_input_format,
   $processor_output_format     = $::nxlog::params::processor_output_format,

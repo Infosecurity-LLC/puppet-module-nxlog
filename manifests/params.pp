@@ -22,6 +22,7 @@ class nxlog::params {
     default   => 'nxlog',
   }
   $package_source              = undef
+  $install_options             = undef
   $processor_module            = undef
   $processor_input_format      = undef
   $processor_output_format     = undef
