@@ -18,8 +18,9 @@ class nxlog::install (
         $real_provider = 'chocolatey'
       }
       package { $package_name:
-        ensure   => $ensure_setting,
-        provider => $real_provider,
+        ensure          => $ensure_setting,
+        provider        => $real_provider,
+        source          => $package_source,
         install_options => $install_options,
       }
     } # end Windows
