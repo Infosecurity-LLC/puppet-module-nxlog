@@ -18,6 +18,7 @@ define nxlog::config::input (
   $input_file_path = $::nxlog::input_file_path,
   $input_module    = $::nxlog::input_module,
   $input_type      = $::nxlog::input_type,
+  $input_options   = $::nxlog::input_options,
   $order_input     = $::nxlog::order_input,
   ) {
   $prefix = $::kernel ? {
