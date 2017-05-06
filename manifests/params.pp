@@ -38,7 +38,7 @@ class nxlog::params {
   $processor_csv_output_fields = []
   $route_destination           = undef
   $route_source                = undef
-  $route_tempate               = "nxlog/${prefix}route.erb"
+  $route_template              = "nxlog/${prefix}route.erb"
 
   # Ordering for the config fragments
   $order_header                = '01'
