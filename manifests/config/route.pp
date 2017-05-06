@@ -17,14 +17,12 @@ define nxlog::config::route (
   $order_route       = $::nxlog::order_route,
   $route_destination = $::nxlog::route_destination,
   $route_source      = $::nxlog::route_source,
+  $route_template    = $::nxlog::route_template,
   ) {
-  $prefix = $::kernel ? {
-    'Windows' => 'win-',
-    default   => '',
-  }
+
   concat::fragment { "route_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_route,
-    content => template("nxlog/${prefix}route.erb"),
+    content => template($route_template),
   }
 }
