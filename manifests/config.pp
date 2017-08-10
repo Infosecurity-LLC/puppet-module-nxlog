@@ -3,6 +3,7 @@ class nxlog::config (
   $conf_dir        = $::nxlog::conf_dir,
   $conf_file       = $::nxlog::conf_file,
   $header_template = $::nxlog::header_template,
+  $header_options  = $::nxlog::header_options,
   $nxlog_root      = $::nxlog::nxlog_root,
   ) {
   concat { "${conf_dir}/${conf_file}":

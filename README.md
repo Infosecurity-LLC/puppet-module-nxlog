@@ -111,6 +111,8 @@ module.
 
 `nxlog_root` - the installation directory for the nxlog program. On Windows this
 is a required setting as NXLog will not start otherwise.
+`header_options` - an array of options for the added to header. Each item in
+  the array will be an line in this section of the config file.
 `header_template` - override default template for header nxlog conf_file
 
 ### Defined Types
