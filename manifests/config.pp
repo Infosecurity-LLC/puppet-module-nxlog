@@ -1,15 +1,13 @@
 # Configures NXLog by building a config file
 class nxlog::config (
-  $conf_dir   = $::nxlog::conf_dir,
-  $conf_file  = $::nxlog::conf_file,
-  $nxlog_root = $::nxlog::nxlog_root,) {
+  $conf_dir        = $::nxlog::conf_dir,
+  $conf_file       = $::nxlog::conf_file,
+  $header_template = $::nxlog::header_template,
+  $nxlog_root      = $::nxlog::nxlog_root,
+  ) {
   concat { "${conf_dir}/${conf_file}":
     ensure         => present,
     ensure_newline => true,
-  }
-  $prefix = $::kernel ? {
-    'Windows' => 'win-',
-    default   => '',
   }
   $content = $::kernel ? {
     'Windows' => "\r\n",
@@ -17,7 +15,7 @@ class nxlog::config (
   }
   concat::fragment { 'conf_header':
     target  => "${conf_dir}/${conf_file}",
-    content => template("nxlog/${prefix}header.erb"),
+    content => template($header_template),
     order   => '01',
   }
 

@@ -6,6 +6,7 @@ class nxlog::params {
   }
   $conf_dir                    = undef
   $conf_file                   = undef
+  $header_template             = "nxlog/${prefix}header.erb"
   $ensure_setting              = latest
   $ext_module                  = undef
   $ext_options                 = undef
