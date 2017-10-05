@@ -6,6 +6,7 @@ class nxlog (
   $conf_dir                    = $::nxlog::params::conf_dir,
   $conf_file                   = $::nxlog::params::conf_file,
   $ensure_setting              = $::nxlog::params::ensure_setting,
+  $service_provider            = $::nxlog::params::service_provider,
   $header_template             = $::nxlog::params::header_template,
   $header_options              = $::nxlog::params::header_options,
   $ext_module                  = $::nxlog::params::ext_module,
