@@ -13,8 +13,10 @@ Facter.add(:nxlog_version) do
       service = 'reg query "HKLM\System\CurrentControlSet\Services\nxlog" /v "ImagePath" | more +2'
       nxlog_fullpath = Facter::Util::Resolution.exec(service).sub(/^ImagePath    REG_EXPAND_SZ    /, '')
       nxlog_version_command = nxlog_fullpath + ' -h | findstr "^nxlog"'
-      IO.popen(nxlog_version_command) { |io| while (line = io.gets) do nxlog_version = line end }
-      %r{(nxlog)-([\w\.]+)}.match(nxlog_version)[2]
+      if system(nxlog_version_command, :out => ['nul', 'a'], :err => ['nul', 'a'])
+       IO.popen(nxlog_version_command) { |io| while (line = io.gets) do nxlog_version = line end }
+       %r{(nxlog)-([\w\.]+)}.match(nxlog_version)[2]
+      end
     end
   end
 end
