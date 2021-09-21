@@ -15,6 +15,7 @@ class nxlog::params {
   $ext_template                = "nxlog/${prefix}extension.erb"
   $input_execs                 = []
   $input_module                = undef
+  $input_options               = undef
   $input_file_path             = undef
   $input_type                  = undef
   $input_options               = undef
@@ -27,7 +28,7 @@ class nxlog::params {
   $output_options              = undef
   $output_template             = "nxlog/${prefix}output.erb"
   $output_port                 = undef
-  $package_name                = $::kernel ? {
+  $package_name                = $facts['kernel'] ? {
     'Linux'   => 'nxlog-ce',
     'Windows' => 'nxlog',
     default   => 'nxlog',
